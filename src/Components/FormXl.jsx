@@ -1,7 +1,11 @@
 import sepa from "../img/sepa.jpeg"
+import paysera from "../img/paysera.jpeg"
+import paypal from "../img/paypal.jpeg"
+// import pickPaymentMethod from "../js/paymentMethods";
 
 
-function FormXl() {
+
+function FormXl({paymentMethod, pickPaymentMethod}) {
 
     return (
             <section className="FormXl">
@@ -29,11 +33,11 @@ function FormXl() {
                     </div>
                     <p className="payment-method">Payment method</p>
                     <div className="payment-method-box">
-                        <img src={sepa} alt="sepa" />
-                        <select name="" id="">
-                            <option value="">Bank transfer</option>
-                            <option value="">Paysera</option>
-                            <option value="">Paypal</option>
+                        <img src={paymentMethod} alt="sepa" />
+                        <select onChange={(e) => pickPaymentMethod(e)} name="" id="">
+                            <option value={sepa}>Bank transfer</option>
+                            <option value={paysera}>Paysera</option>
+                            <option value={paypal}>Paypal</option>
                         </select>
                     </div>
                     <button>Buy BTC</button>

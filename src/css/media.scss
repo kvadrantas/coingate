@@ -1,0 +1,118 @@
+@media (max-width: 1180px) {
+    .main {
+        height: 1200px;
+        .content {
+
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 1200px;
+
+            .section1 {
+                padding-top: 40px;
+                padding-bottom: 0;
+                flex-basis: 30%;
+            }
+
+            .section2 {
+                flex-basis: 70%;
+
+                .back-block {
+                    position: relative;
+                }
+            }
+        }
+
+        .bg-block {
+            top: -313px;
+        }
+    }   
+
+}
+
+@media (max-width: 636px) {
+    .FormXl {
+        display: none;
+    }
+
+    .FormXs {
+        display: block;
+    }
+
+    .main {
+        .content {
+            width: 100%;
+            left: 0;
+
+            h1,
+            p {
+                width: 322px;
+            }
+
+            .section1 {
+                h1 {
+                    font-size: 30px;
+                    line-height: 35px;
+                    margin-top: 70px;
+                    margin-bottom: 70px;
+                }
+
+                // text-align: center;
+                // display: flex;
+                flex-direction: column;
+                flex-basis: 456px;
+                // justify-content: center;
+                align-items: center;
+                padding: 0;
+            }
+
+            .start-now {
+                display: none;
+            }
+        }
+        .bg-block {
+            top: -511px;
+            transform: rotate(354deg);
+            height: 1493.46px;
+            left: -33%;
+            width: 1600px;
+        }
+
+    }
+
+    .section1 .pay,
+    .section1 .buy,
+    .section2 .pay,
+    .section2 .buy,
+    .payment-method-box {
+        width: 289px;
+        margin-top: 25px;
+
+        label {
+            width: 60px;
+        }
+
+        input {
+            width: 124px;
+        }
+
+        i {
+            width: 22px;
+            margin-left: 7px;
+            margin-right: 5px;
+        }
+
+        select {
+            margin-right: 15px;
+        }
+    }
+
+    .section1 .payment-method, .section2 .payment-method {
+        margin: 27px 0 25px 15px;
+    }
+
+    .payment-method-box {
+        margin-bottom: 77px;
+    }
+
+}

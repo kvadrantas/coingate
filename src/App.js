@@ -9,14 +9,16 @@ import sepa from "./img/sepa.jpeg";
 function App() {
 
   const [paymentMethod, setPaymentMethod] = useState(sepa);
-  const [payCurrency, setPayCurrency] = useState(['EUR']);
+  const [payCurrency, setPayCurrency] = useState('EUR');
   const [payCurrencies, setPayCurrencies] = useState();
-  const [buyCurrency, setBuyCurrency] = useState(['EUR']);
+  const [buyCurrency, setBuyCurrency] = useState('EUR');
   const [buyCurrencies, setBuyCurrencies] = useState();
 
 
   useEffect(() => {
-     fetchData('EUR');
+    // const animals = localStorage.getItem('setPayCurrencies');
+    // const animals = localStorage.getItem('setBuyCurrencies');
+    fetchData('EUR');
   }, [])
 
 
@@ -27,10 +29,11 @@ const fetchData = (what) => {
     .then(response => response.json())
     .then(data => {
       const {merchant} = data;
+      // localStorage.setItem('setPayCurrencies',    JSON.stringify(animalCopy));
       setPayCurrencies(Object.keys(merchant));
       setBuyCurrencies(Object.keys(merchant[what]))
       
-      console.log('ID FETCHO ', what, buyCurrencies);
+
   })
 }
   
@@ -49,7 +52,7 @@ const fetchData = (what) => {
     setBuyCurrency(e.target.value);
   }
 
-
+if(payCurrencies && buyCurrencies) {
   return (
     <div className="main">
       <div className="bg-block"></div>
@@ -59,7 +62,7 @@ const fetchData = (what) => {
           <h1>
             Buy Bitcoin, <span>Ethereum, Litecoin and other crypto</span> online
           </h1>
-          <FormXs className="FormXs" paymentMethod={paymentMethod} pickPaymentMethod={pickPaymentMethod}/>
+            <FormXs className="FormXs" paymentMethod={paymentMethod} pickPaymentMethod={pickPaymentMethod}/>
           <p>Why bother going through complicated exchanges? Buy cryptocurrency with top payment methods like SEPA bank transfer, Credit and Debit Card, Apple Pay, Mobile balance or Klarna. You can buy Bitcoin, Ethereum or any other popular crypto directly to your personal wallet without making any initial deposits. It's as easy as it gets!</p>
           <a className="start-now" href="">Start now &gt;</a>
         </div>
@@ -71,6 +74,8 @@ const fetchData = (what) => {
       
     </div>
   );
+} else {return(<></>)}
+  
 }
 
 export default App;

@@ -11,12 +11,12 @@ function App() {
   const [paymentMethod, setPaymentMethod] = useState(sepa);
   const [payCurrency, setPayCurrency] = useState(['EUR']);
   const [payCurrencies, setPayCurrencies] = useState();
+  const [buyCurrency, setBuyCurrency] = useState(['EUR']);
   const [buyCurrencies, setBuyCurrencies] = useState();
 
 
   useEffect(() => {
-     fetchData();
-    // console.log(payCurrencies)
+     fetchData('EUR');
   }, [])
 
 
@@ -28,22 +28,13 @@ const fetchData = (what) => {
     .then(data => {
       const {merchant} = data;
       setPayCurrencies(Object.keys(merchant));
+      setBuyCurrencies(Object.keys(merchant[what]))
       
-      console.log('ID FETCHO ', merchant[what]);
-
-      // return {
-      //   payCurrencies: Object.keys(merchant),
-
-      // }
+      console.log('ID FETCHO ', what, buyCurrencies);
   })
 }
   
 
-// console.log(payCurrency)
-
-
-
-  
 
   const pickPaymentMethod = e => {
       setPaymentMethod(e.target.value);
@@ -55,7 +46,7 @@ const fetchData = (what) => {
   }
 
   const pickBuyCurrency = e => {
-    setPayCurrency(e.target.value);
+    setBuyCurrency(e.target.value);
   }
 
 
@@ -74,7 +65,7 @@ const fetchData = (what) => {
         </div>
 
         <div className="section2">
-          <FormXl className="FormXl" paymentMethod={paymentMethod} pickPaymentMethod={pickPaymentMethod} payCurrency={payCurrency} pickPayCurrency={pickPayCurrency} payCurrencies={payCurrencies}/>
+          <FormXl className="FormXl" paymentMethod={paymentMethod} pickPaymentMethod={pickPaymentMethod} payCurrency={payCurrency} pickPayCurrency={pickPayCurrency} payCurrencies={payCurrencies} buyCurrency={buyCurrency} pickBuyCurrency={pickBuyCurrency} buyCurrencies={buyCurrencies}/>
         </div>
       </div>
       

@@ -1,8 +1,7 @@
 import sepa from "../img/sepa.jpeg"
 import paysera from "../img/paysera.jpeg"
 import paypal from "../img/paypal.jpeg"
-// import pickPaymentMethod from "../js/paymentMethods";
-
+import Icon from "react-crypto-icons";
 
 
 function FormXl({paymentMethod, pickPaymentMethod}) {
@@ -16,7 +15,7 @@ function FormXl({paymentMethod, pickPaymentMethod}) {
                     <div className="pay">
                         <label htmlFor="">Pay</label>
                         <input type="text" />
-                        <i className="fas fa-euro-sign"></i>
+                        <div className="icon-cnt"><Icon className="icon" name="eur" /></div>
                         <select name="" id="">
                             <option value="">EUR</option>
                             <option value="">BTC</option>
@@ -25,7 +24,7 @@ function FormXl({paymentMethod, pickPaymentMethod}) {
                     <div className="buy">
                         <label htmlFor="">Buy</label>
                         <input type="text" />
-                        <i className="fas fa-euro-sign"></i>
+                        <div className="icon-cnt"><Icon className="icon" name="btc" /></div>
                         <select name="" id="">
                             <option value="">EUR</option>
                             <option value="">BTC</option>

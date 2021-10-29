@@ -4,8 +4,8 @@ import paypal from "../img/paypal.jpeg"
 import Icon from "react-crypto-icons";
 
 
-function FormXl({paymentMethod, pickPaymentMethod}) {
-
+function FormXl({paymentMethod, pickPaymentMethod, payCurrency, pickPayCurrency, payCurrencies, buyCurrency, pickBuyCurrency, buyCurrencies}) {
+console.log(payCurrencies)
     return (
             <section className="FormXl">
                 <div className="back-block">
@@ -15,19 +15,17 @@ function FormXl({paymentMethod, pickPaymentMethod}) {
                     <div className="pay">
                         <label htmlFor="">Pay</label>
                         <input type="text" />
-                        <div className="icon-cnt"><Icon className="icon" name="eur" /></div>
-                        <select name="" id="">
-                            <option value="">EUR</option>
-                            <option value="">BTC</option>
+                        <div className="icon-cnt"><Icon className="icon" name={('' + payCurrency).toLowerCase()} /></div>
+                        <select onChange={(e) => pickPayCurrency(e)} name="" id="">
+                            {payCurrencies.map(e => <option value={e}>{e}</option>)}
                         </select>
                     </div>
                     <div className="buy">
                         <label htmlFor="">Buy</label>
                         <input type="text" />
-                        <div className="icon-cnt"><Icon className="icon" name="btc" /></div>
-                        <select name="" id="">
-                            <option value="">EUR</option>
-                            <option value="">BTC</option>
+                        <div className="icon-cnt"><Icon className="icon" name={('' + buyCurrency).toLowerCase()} /></div>
+                        <select onChange={(e) => pickBuyCurrency(e)} name="" id="">
+                            {/* {buyCurrencies.map(e => <option value={e}>{e}</option>)} */}
                         </select>
                     </div>
                     <p className="payment-method">Payment method</p>

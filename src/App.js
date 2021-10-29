@@ -1,6 +1,6 @@
 
 import './App.scss';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import FormXl from './Components/FormXl';
 import FormXs from './Components/FormXs';
 import sepa from "./img/sepa.jpeg";
@@ -9,49 +9,37 @@ import sepa from "./img/sepa.jpeg";
 function App() {
 
   const [paymentMethod, setPaymentMethod] = useState(sepa);
-
-  // async function getJson() {
-  //   let jsonData = await fetch('https://api.coingate.com/v2/rates');
-  //   return jsonData
-  // }
+  const [payCurrency, setPayCurrency] = useState(['EUR']);
+  const [payCurrencies, setPayCurrencies] = useState();
+  const [buyCurrencies, setBuyCurrencies] = useState();
 
 
-
-// --------
-// const data = { funny: "Absolutely not", educational: "yas" }
-
-  // fetch('https://api.coingate.com/v2/rates', {
-  //   method: 'POST', // The method
-  //   mode: 'no-cors', // It can be no-cors, cors, same-origin
-  //   // credentials: 'same-origin', // It can be include, same-origin, omit
-  //   headers: {
-  //     'Content-Type': 'application/json', // Your headers
-  //   },
-  //   body: JSON.stringify(data),
-  // }).then(returnedData => {
-  //   // Do whatever with returnedData
-  //   console.log(returnedData)
-  // }).catch(err => {
-  //   // In case it errors.
-  // })
-// --------
-// fetch('https://api.coingate.com/v2/rates')
-//   .then(blob => blob.json())
-//   .then(data => {
-//     console.table(data);
-//     document.querySelector("pre").innerHTML = JSON.stringify(data, null, 2);
-//     return data;
-//   })
-//   .catch(e => {
-//     console.log(e);
-//     return e;
-//   });
-// --------
-fetch('https://cors-anywhere.herokuapp.com/https://api.coingate.com/v2/rates')
-  .then(response => response.json())
-  .then(data => console.log(data));
+  useEffect(() => {
+     fetchData();
+    // console.log(payCurrencies)
+  }, [])
 
 
+
+const fetchData = (what) => {
+  fetch('https://secret-ocean-49799.herokuapp.com/https://api.coingate.com/v2/rates')
+  // fetch('https://cors-anywhere.herokuapp.com/https://api.coingate.com/v2/rates')
+    .then(response => response.json())
+    .then(data => {
+      const {merchant} = data;
+      setPayCurrencies(Object.keys(merchant));
+      
+      console.log('ID FETCHO ', merchant[what]);
+
+      // return {
+      //   payCurrencies: Object.keys(merchant),
+
+      // }
+  })
+}
+  
+
+// console.log(payCurrency)
 
 
 
@@ -59,6 +47,15 @@ fetch('https://cors-anywhere.herokuapp.com/https://api.coingate.com/v2/rates')
 
   const pickPaymentMethod = e => {
       setPaymentMethod(e.target.value);
+  }
+
+  const pickPayCurrency = e => {
+    setPayCurrency(e.target.value);
+    fetchData(e.target.value)
+  }
+
+  const pickBuyCurrency = e => {
+    setPayCurrency(e.target.value);
   }
 
 
@@ -77,7 +74,7 @@ fetch('https://cors-anywhere.herokuapp.com/https://api.coingate.com/v2/rates')
         </div>
 
         <div className="section2">
-          <FormXl className="FormXl" paymentMethod={paymentMethod} pickPaymentMethod={pickPaymentMethod}/>
+          <FormXl className="FormXl" paymentMethod={paymentMethod} pickPaymentMethod={pickPaymentMethod} payCurrency={payCurrency} pickPayCurrency={pickPayCurrency} payCurrencies={payCurrencies}/>
         </div>
       </div>
       

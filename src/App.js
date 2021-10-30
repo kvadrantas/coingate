@@ -1,5 +1,6 @@
 
 import './App.scss';
+import axios from 'axios';
 import { useState, useEffect } from "react";
 import FormXl from './Components/FormXl';
 import FormXs from './Components/FormXs';
@@ -8,34 +9,43 @@ import sepa from "./img/sepa.jpeg";
 
 function App() {
 
+  const [jsData, setJsData] = useState();
   const [paymentMethod, setPaymentMethod] = useState(sepa);
   const [payCurrency, setPayCurrency] = useState('EUR');
   const [payCurrencies, setPayCurrencies] = useState();
-  const [buyCurrency, setBuyCurrency] = useState('EUR');
+  const [buyCurrency, setBuyCurrency] = useState(['BTC', '']);
   const [buyCurrencies, setBuyCurrencies] = useState();
 
+  const fetchData = (what) => {
+    console.log('FUNKIJA ', jsData)
+        setPayCurrencies(Object.keys(jsData));
+  
+        const m = [];
+        for (const [key, value] of Object.entries(jsData[what])) {
+          m.push([key, value]);
+          if (key === buyCurrency[0]) setBuyCurrency([key, value]);
+        }
+        setBuyCurrencies(m);
+        if (m.findIndex((e) => e[0] === buyCurrency[0]) < 0) setBuyCurrency(m[0]);
+  }
 
   useEffect(() => {
-    // const animals = localStorage.getItem('setPayCurrencies');
-    // const animals = localStorage.getItem('setBuyCurrencies');
-    fetchData('EUR');
+    axios('https://secret-ocean-49799.herokuapp.com/https://api.coingate.com/v2/rates')
+  // fetch('https://cors-anywhere.herokuapp.com/https://api.coingate.com/v2/rates')
+    .then(response => {
+      setJsData(response.data.merchant);
+    })
+    .catch(error => console.error("Error: ", error))
+    .finally(() => {
+      
+    })
+
   }, [])
 
-
-
-const fetchData = (what) => {
-  fetch('https://secret-ocean-49799.herokuapp.com/https://api.coingate.com/v2/rates')
-  // fetch('https://cors-anywhere.herokuapp.com/https://api.coingate.com/v2/rates')
-    .then(response => response.json())
-    .then(data => {
-      const {merchant} = data;
-      // localStorage.setItem('setPayCurrencies',    JSON.stringify(animalCopy));
-      setPayCurrencies(Object.keys(merchant));
-      setBuyCurrencies(Object.keys(merchant[what]))
-      
-
-  })
-}
+  useEffect( () => {
+    if(jsData)
+      fetchData('EUR');
+  }, [jsData])
   
 
 
@@ -49,7 +59,8 @@ const fetchData = (what) => {
   }
 
   const pickBuyCurrency = e => {
-    setBuyCurrency(e.target.value);
+    const m = e.target.value.split(',');
+    setBuyCurrency(m);
   }
 
 if(payCurrencies && buyCurrencies) {
@@ -64,7 +75,7 @@ if(payCurrencies && buyCurrencies) {
           </h1>
             <FormXs className="FormXs" paymentMethod={paymentMethod} pickPaymentMethod={pickPaymentMethod}/>
           <p>Why bother going through complicated exchanges? Buy cryptocurrency with top payment methods like SEPA bank transfer, Credit and Debit Card, Apple Pay, Mobile balance or Klarna. You can buy Bitcoin, Ethereum or any other popular crypto directly to your personal wallet without making any initial deposits. It's as easy as it gets!</p>
-          <a className="start-now" href="">Start now &gt;</a>
+          <a className="start-now" href="#">Start now &gt;</a>
         </div>
 
         <div className="section2">

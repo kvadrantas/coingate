@@ -16,6 +16,10 @@ function App() {
   const [buyCurrency, setBuyCurrency] = useState(['BTC', '']);
   const [buyCurrencies, setBuyCurrencies] = useState();
 
+  const [payValue, setPayValue] = useState(0);
+  const [buyValue, setBuyValue] = useState(0);
+
+
   const fetchData = (what) => {
     console.log('FUNKIJA ', jsData)
         setPayCurrencies(Object.keys(jsData));
@@ -73,13 +77,13 @@ if(payCurrencies && buyCurrencies) {
           <h1>
             Buy Bitcoin, <span>Ethereum, Litecoin and other crypto</span> online
           </h1>
-            <FormXs className="FormXs" paymentMethod={paymentMethod} pickPaymentMethod={pickPaymentMethod}/>
+            <FormXs className="FormXs" paymentMethod={paymentMethod} pickPaymentMethod={pickPaymentMethod} payCurrency={payCurrency} pickPayCurrency={pickPayCurrency} payCurrencies={payCurrencies} buyCurrency={buyCurrency} pickBuyCurrency={pickBuyCurrency} buyCurrencies={buyCurrencies} setPayValue={setPayValue} payValue={payValue} setBuyValue={setBuyValue} buyValue={buyValue}/>
           <p>Why bother going through complicated exchanges? Buy cryptocurrency with top payment methods like SEPA bank transfer, Credit and Debit Card, Apple Pay, Mobile balance or Klarna. You can buy Bitcoin, Ethereum or any other popular crypto directly to your personal wallet without making any initial deposits. It's as easy as it gets!</p>
           <a className="start-now" href="#">Start now &gt;</a>
         </div>
 
         <div className="section2">
-          <FormXl className="FormXl" paymentMethod={paymentMethod} pickPaymentMethod={pickPaymentMethod} payCurrency={payCurrency} pickPayCurrency={pickPayCurrency} payCurrencies={payCurrencies} buyCurrency={buyCurrency} pickBuyCurrency={pickBuyCurrency} buyCurrencies={buyCurrencies}/>
+          <FormXl className="FormXl" paymentMethod={paymentMethod} pickPaymentMethod={pickPaymentMethod} payCurrency={payCurrency} pickPayCurrency={pickPayCurrency} payCurrencies={payCurrencies} buyCurrency={buyCurrency} pickBuyCurrency={pickBuyCurrency} buyCurrencies={buyCurrencies} setPayValue={setPayValue} payValue={payValue} setBuyValue={setBuyValue} buyValue={buyValue}/>
         </div>
       </div>
       

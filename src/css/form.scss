@@ -61,7 +61,7 @@
 
     input {
         display: inline-block;
-        width: 124px;
+        width: 187px;
         line-height: 28px;
         text-align: center;
         font-size: 20px;
@@ -93,6 +93,7 @@
     }
 
     select {
+        width: 72px;
         border: 0;
         background-color: transparent;
         display: inline-block;
@@ -172,3 +173,18 @@ button {
     border-radius: 4px 50px 50px 40px;
     font-size: 17px;
 }
+
+
+
+
+// .front-block .pay * {
+//     border: 1px solid red;
+//     input {border: 1px solid red;}
+// }
+
+// .section1 .pay input, .section1 .buy input, .section2 .pay input, .section2 .buy input, .payment-method-box input {
+//     border: 1px solid red;
+// }
+// .section1 .pay select, .section1 .buy select, .section2 .pay select, .section2 .buy select, .payment-method-box select {
+//     border: 1px solid red;
+// }

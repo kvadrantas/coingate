@@ -5,6 +5,8 @@ import { useState, useEffect } from "react";
 import FormXl from './Components/FormXl';
 import FormXs from './Components/FormXs';
 import sepa from "./img/sepa.jpeg";
+import logo from "./img/logo.jpg";
+
 
 
 function App() {
@@ -69,25 +71,40 @@ function App() {
 
 if(payCurrencies && buyCurrencies) {
   return (
-    <div className="main">
-      <div className="bg-block"></div>
-      <div className="content">
-
-        <div className="section1">
-          <h1>
-            Buy Bitcoin, <span>Ethereum, Litecoin and other crypto</span> online
-          </h1>
-            <FormXs className="FormXs" paymentMethod={paymentMethod} pickPaymentMethod={pickPaymentMethod} payCurrency={payCurrency} pickPayCurrency={pickPayCurrency} payCurrencies={payCurrencies} buyCurrency={buyCurrency} pickBuyCurrency={pickBuyCurrency} buyCurrencies={buyCurrencies} setPayValue={setPayValue} payValue={payValue} setBuyValue={setBuyValue} buyValue={buyValue}/>
-          <p>Why bother going through complicated exchanges? Buy cryptocurrency with top payment methods like SEPA bank transfer, Credit and Debit Card, Apple Pay, Mobile balance or Klarna. You can buy Bitcoin, Ethereum or any other popular crypto directly to your personal wallet without making any initial deposits. It's as easy as it gets!</p>
-          <a className="start-now" href="#">Start now &gt;</a>
-        </div>
-
-        <div className="section2">
-          <FormXl className="FormXl" paymentMethod={paymentMethod} pickPaymentMethod={pickPaymentMethod} payCurrency={payCurrency} pickPayCurrency={pickPayCurrency} payCurrencies={payCurrencies} buyCurrency={buyCurrency} pickBuyCurrency={pickBuyCurrency} buyCurrencies={buyCurrencies} setPayValue={setPayValue} payValue={payValue} setBuyValue={setBuyValue} buyValue={buyValue}/>
+    <>
+      <div className="top-menu">
+        <img src={logo} className="logo"></img>
+        <ul>
+          <li>Product</li>
+          <li>Recources</li>
+          <li>Buy instantly</li>
+        </ul>
+        <div className="rightnav">
+          <a className="login">Log in</a>
+          <button className="signup">Sign up</button>
         </div>
       </div>
-      
-    </div>
+      <div className="main">
+
+        <div className="bg-block"></div>
+        <div className="content">
+
+          <div className="section1">
+            <h1>
+              Buy Bitcoin, <span>Ethereum, Litecoin and other crypto</span> online
+            </h1>
+              <FormXs className="FormXs" paymentMethod={paymentMethod} pickPaymentMethod={pickPaymentMethod} payCurrency={payCurrency} pickPayCurrency={pickPayCurrency} payCurrencies={payCurrencies} buyCurrency={buyCurrency} pickBuyCurrency={pickBuyCurrency} buyCurrencies={buyCurrencies} setPayValue={setPayValue} payValue={payValue} setBuyValue={setBuyValue} buyValue={buyValue}/>
+            <p>Why bother going through complicated exchanges? Buy cryptocurrency with top payment methods like SEPA bank transfer, Credit and Debit Card, Apple Pay, Mobile balance or Klarna. You can buy Bitcoin, Ethereum or any other popular crypto directly to your personal wallet without making any initial deposits. It's as easy as it gets!</p>
+            <a className="start-now" href="#">Start now &gt;</a>
+          </div>
+
+          <div className="section2">
+            <FormXl className="FormXl" paymentMethod={paymentMethod} pickPaymentMethod={pickPaymentMethod} payCurrency={payCurrency} pickPayCurrency={pickPayCurrency} payCurrencies={payCurrencies} buyCurrency={buyCurrency} pickBuyCurrency={pickBuyCurrency} buyCurrencies={buyCurrencies} setPayValue={setPayValue} payValue={payValue} setBuyValue={setBuyValue} buyValue={buyValue}/>
+          </div>
+        </div>
+        
+      </div>
+    </>
   );
 } else {return(<></>)}
   

@@ -101,6 +101,7 @@
         line-height: 48px;
         height: 48px;
         font-size: 15px;
+        cursor: pointer;
     }
     option {
         display: inline-block;
@@ -174,6 +175,11 @@ button {
     font-size: 17px;
 }
 
+button:hover {
+    background: #E5E5E5;
+    border: 1px solid #E5E5E5;
+    cursor: pointer;
+}
 
 
 

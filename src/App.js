@@ -6,6 +6,8 @@ import FormXl from './Components/FormXl';
 import FormXs from './Components/FormXs';
 import sepa from "./img/sepa.jpeg";
 import logo from "./img/logo.jpg";
+import nav from "./img/nav.jpg";
+import hide from './js/hide';
 
 
 
@@ -74,7 +76,7 @@ if(payCurrencies && buyCurrencies) {
     <>
       <div className="top-menu">
         <img src={logo} className="logo"></img>
-        <ul>
+        <ul id="nav-menu">
           <li>Product</li>
           <li>Recources</li>
           <li>Buy instantly</li>
@@ -83,6 +85,7 @@ if(payCurrencies && buyCurrencies) {
           <a className="login">Log in</a>
           <button className="signup">Sign up</button>
         </div>
+        <img onClick={e => hide(e)} className="mob-nav" src={nav}></img>
       </div>
       <div className="main">
 

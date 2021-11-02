@@ -1,6 +1,6 @@
 # CoinGate Junior Frontend Developer evaluation task
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+You can view live project [here](http://rolandasseputis.lt:2548/).
 
 ## Task description
 
@@ -15,13 +15,15 @@ Convert the attached Figma file into a working web page. [(Figma file)](https://
 - [x] Take icons from wherever you feel is comfortable for you. If the icon is missing you should have a fallback to any icon of your choice. We suggest using libraries or API service, so it would all be in one place and you would save time searching for it (e.g.: https://cryptoicons.org/).
 - [x] The "Buy BTC" button should contain the selected buy currency in the label. After clicking it user should be redirected to any other page.
 - [x] The "Start now" link should redirect to any other page.
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<br /><br />
+======
 
 ### Requirements:
 
 - [x] Use React JS.
 - [x] Browser support: supported by the modern browsers Google Chrome, Safari, Mozilla Firefox).
+<br /><br />
+======
 
 ### Extra points:
 

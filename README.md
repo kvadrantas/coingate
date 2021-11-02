@@ -1,12 +1,13 @@
-# Getting Started with Create React App
+# CoinGate Junior Frontend Developer evaluation task
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Task description
 
-In the project directory, you can run:
+Convert the attached Figma file into a working web page.
+This project was bootstrapped with [Create React App](https://www.figma.com/file/qiJAnL7XAVIjhuBD88T26w/Buy%26sell-copy?node-id=0%3A1)
 
-### `npm start`
+### Explanation:
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.

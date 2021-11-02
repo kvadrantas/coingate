@@ -16,14 +16,14 @@ Convert the attached Figma file into a working web page. [(Figma file)](https://
 - [x] The "Buy BTC" button should contain the selected buy currency in the label. After clicking it user should be redirected to any other page.
 - [x] The "Start now" link should redirect to any other page.
 <br /><br />
-======
+---
 
 ### Requirements:
 
 - [x] Use React JS.
 - [x] Browser support: supported by the modern browsers Google Chrome, Safari, Mozilla Firefox).
 <br /><br />
-======
+---
 
 ### Extra points:
 

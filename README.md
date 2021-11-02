@@ -29,7 +29,7 @@ Convert the attached Figma file into a working web page. [(Figma file)](https://
 
 - [ ] Use of Typescript.
 - [x] Use of Material UI.
-- [x] Use of Formik and validating the form values (not allowing to submit if at least one field is empty).
+- [x] Validating the form values (not allowing to submit if at least one field is empty).
 - [x] Use of React hooks.
 - [ ] Use of Next.js.
 - [x] Implementation of responsive design that is included in the Figma file.

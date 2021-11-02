@@ -3,6 +3,7 @@ import paysera from "../img/paysera.jpeg"
 import paypal from "../img/paypal.jpeg"
 import Icon from "react-crypto-icons";
 import { useEffect } from "react";
+import validateNGo from "../js/validateNGo";
 
 
 function FormXs({paymentMethod, pickPaymentMethod, payCurrency, pickPayCurrency, payCurrencies, buyCurrency, pickBuyCurrency, buyCurrencies, payValue, setPayValue, buyValue, setBuyValue}) {
@@ -78,7 +79,7 @@ useEffect(() => {
                     </select>
                 </div>
                 {/* <button>Buy {buyCurrency[0]}</button> */}
-                <button onClick={() => window.location.href='https://rolandasseputis.lt/portfolio/'}>Buy {buyCurrency[0]}</button>
+                <button onClick={validateNGo}>Buy {buyCurrency[0]}</button>
 
             </div>
         </div>

@@ -3,6 +3,7 @@ import paysera from "../img/paysera.jpeg"
 import paypal from "../img/paypal.jpeg"
 import Icon from "react-crypto-icons";
 import { useEffect } from "react";
+import validateNGo from "../js/validateNGo";
 
 
 function FormXl({paymentMethod, pickPaymentMethod, payCurrency, pickPayCurrency, payCurrencies, buyCurrency, pickBuyCurrency, buyCurrencies, payValue, setPayValue, buyValue, setBuyValue}) {
@@ -22,6 +23,8 @@ const calcCurency = (which, e) => {
         document.getElementById('payFieldSm').value = financial(e.target.value / parseFloat(buyCurrency[1]));
     }
 }
+
+
 
 useEffect(() => {
     document.getElementById('payFieldSm').value = payValue;
@@ -81,7 +84,7 @@ useEffect(() => {
                         </select>
                     </div>
                     {/* <button>Buy {buyCurrency[0]}</button> */}
-                    <button onClick={() => window.location.href='https://rolandasseputis.lt/portfolio/'}>Buy {buyCurrency[0]}</button>
+                    <button onClick={validateNGo}>Buy {buyCurrency[0]}</button>
                 </div>
             </section>
     )

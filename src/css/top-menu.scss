@@ -24,7 +24,7 @@
         left: 180px;
         padding: 0;
         margin: 0;
-        width: 100%;
+        // width: 100vw;
     }
 
     li {
@@ -54,12 +54,18 @@
     
     .login {
         color: #7F88A0;
+        text-decoration: none;
+    }
+
+    a,
+    .login,
+    li {
+        cursor: pointer;
     }
 
     .login:hover,
     li:hover {
         color: #5b5f6d;
-        cursor: pointer;
     }
 
     .mob-nav {

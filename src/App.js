@@ -20,12 +20,11 @@ function App() {
   const [buyCurrency, setBuyCurrency] = useState(['BTC', '']);
   const [buyCurrencies, setBuyCurrencies] = useState();
 
-  const [payValue, setPayValue] = useState(0);
+  const [payValue, setPayValue] = useState(null);
   const [buyValue, setBuyValue] = useState(0);
 
 
   const fetchData = (what) => {
-    console.log('FUNKIJA ', jsData)
         setPayCurrencies(Object.keys(jsData));
   
         const m = [];
@@ -45,7 +44,6 @@ function App() {
     })
     .catch(error => console.error("Error: ", error))
     .finally(() => {
-      
     })
 
   }, [])
@@ -53,7 +51,8 @@ function App() {
   useEffect( () => {
     if(jsData)
       fetchData('EUR');
-  }, [jsData])
+      //eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [jsData]) 
   
 
 
@@ -75,17 +74,17 @@ if(payCurrencies && buyCurrencies) {
   return (
     <>
       <div className="top-menu">
-        <img src={logo} className="logo"></img>
+        <img src={logo} className="logo" alt="logo"></img>
         <ul id="nav-menu">
           <li>Product</li>
           <li>Recources</li>
           <li>Buy instantly</li>
         </ul>
         <div className="rightnav">
-          <a className="login">Log in</a>
+          <a href="https://rolandasseputis.lt/portfolio/" className="login">Log in</a>
           <button className="signup">Sign up</button>
         </div>
-        <img onClick={e => hide(e)} className="mob-nav" src={nav}></img>
+        <img onClick={e => hide(e)} className="mob-nav" src={nav} alt="menu"></img>
       </div>
       <div className="main">
 
@@ -98,7 +97,7 @@ if(payCurrencies && buyCurrencies) {
             </h1>
               <FormXs className="FormXs" paymentMethod={paymentMethod} pickPaymentMethod={pickPaymentMethod} payCurrency={payCurrency} pickPayCurrency={pickPayCurrency} payCurrencies={payCurrencies} buyCurrency={buyCurrency} pickBuyCurrency={pickBuyCurrency} buyCurrencies={buyCurrencies} setPayValue={setPayValue} payValue={payValue} setBuyValue={setBuyValue} buyValue={buyValue}/>
             <p>Why bother going through complicated exchanges? Buy cryptocurrency with top payment methods like SEPA bank transfer, Credit and Debit Card, Apple Pay, Mobile balance or Klarna. You can buy Bitcoin, Ethereum or any other popular crypto directly to your personal wallet without making any initial deposits. It's as easy as it gets!</p>
-            <a className="start-now" href="#">Start now &gt;</a>
+            <a className="start-now" href="https://rolandasseputis.lt/portfolio/">Start now &gt;</a>
           </div>
 
           <div className="section2">

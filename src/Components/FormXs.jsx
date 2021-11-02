@@ -2,7 +2,7 @@ import sepa from "../img/sepa.jpeg"
 import paysera from "../img/paysera.jpeg"
 import paypal from "../img/paypal.jpeg"
 import Icon from "react-crypto-icons";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 
 
 function FormXs({paymentMethod, pickPaymentMethod, payCurrency, pickPayCurrency, payCurrencies, buyCurrency, pickBuyCurrency, buyCurrencies, payValue, setPayValue, buyValue, setBuyValue}) {
@@ -10,8 +10,6 @@ function FormXs({paymentMethod, pickPaymentMethod, payCurrency, pickPayCurrency,
 // console.log(payCurrency)
 // console.log(buyCurrency)
 
-// const [payValue, setPayValue] = useState(10);
-// const [buyValue, setBuyValue] = useState(0);
 
 const calcCurency = (which, e) => {
     if(which === 'pay') {
@@ -37,15 +35,17 @@ function financial(x) {
 }
 
 useEffect(() => {
-    console.log(payValue, ' ', parseFloat(buyCurrency[1]))
-    console.log(financial(payValue * parseFloat(buyCurrency[1])))
     document.getElementById('buyFieldSm').value = financial(payValue * parseFloat(buyCurrency[1]));
     document.getElementById('buyField').value = financial(payValue * parseFloat(buyCurrency[1]));
     document.getElementById('buySelect').value = buyCurrency;
+    //eslint-disable-next-line react-hooks/exhaustive-deps
 }, [buyCurrency])
 useEffect(() => {
     document.getElementById('paySelect').value = payCurrency;
 }, [payCurrency])  
+useEffect(() => {
+    document.getElementById('PMSelect').value = paymentMethod;
+}, [paymentMethod]) 
 
 
     return (
@@ -54,30 +54,32 @@ useEffect(() => {
             <div className="front-block2">
                 <div className="pay">
                     <label htmlFor="">Pay</label>
-                    <input id="payFieldSm" onChange={(e) => calcCurency('pay', e)} type="text" />
+                    <input id="payFieldSm" onChange={(e) => calcCurency('pay', e)} type="number" />
                     <div className="icon-cnt"><Icon className="icon" name={('' + payCurrency).toLowerCase()} /></div>
-                    <select id="paySelectSm" onChange={(e) => pickPayCurrency(e)} defaultValue={payCurrency} name="">
+                    <select id="paySelectSm" onChange={(e) => pickPayCurrency(e)} defaultValue='EUR' name="">
                         {payCurrencies.map((e, id) => <option key={id} value={e} >{e}</option>)}
                     </select>
                 </div>
                 <div className="buy">
                     <label htmlFor="">Buy</label>
-                    <input id="buyFieldSm" onChange={(e) => calcCurency('buy', e)} type="text" />
+                    <input id="buyFieldSm" onChange={(e) => calcCurency('buy', e)} type="number" />
                     <div className="icon-cnt"><Icon className="icon" name={('' + buyCurrency[0]).toLowerCase()} /></div>
-                    <select id="buySelectSm" onChange={(e) => pickBuyCurrency(e)} defaultValue={buyCurrency[0]} name="">
+                    <select id="buySelectSm" onChange={(e) => pickBuyCurrency(e)} defaultValue='BTC' name="">
                         {buyCurrencies.map((e, id) => <option key={id} value={e}>{e[0]}</option>)}
                     </select>
                 </div>
                 <p className="payment-method">Payment method</p>
                 <div className="payment-method-box">
                     <img src={paymentMethod} alt="sepa" />
-                    <select className="selectSm" onChange={(e) => pickPaymentMethod(e)} name="">
+                    <select id="PMSelectSm" className="selectSm" onChange={(e) => pickPaymentMethod(e)} defaultValue={sepa} name="">
                         <option value={sepa}>Bank transfer</option>
                         <option value={paysera}>Paysera</option>
                         <option value={paypal}>Paypal</option>
                     </select>
                 </div>
-                <button>Buy {buyCurrency[0]}</button>
+                {/* <button>Buy {buyCurrency[0]}</button> */}
+                <button onClick={() => window.location.href='https://rolandasseputis.lt/portfolio/'}>Buy {buyCurrency[0]}</button>
+
             </div>
         </div>
     )

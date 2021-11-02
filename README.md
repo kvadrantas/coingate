@@ -21,7 +21,7 @@ Convert the attached Figma file into a working web page. [(Figma file)](https://
 ### Requirements:
 
 - [x] Use React JS.
-- [x] Browser support: supported by the modern browsers Google Chrome, Safari, Mozilla Firefox).
+- [x] Browser support: supported by the modern browsers (Google Chrome, Safari, Mozilla Firefox).
 <br /><br /><br />
 ---
 

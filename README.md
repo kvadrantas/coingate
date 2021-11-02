@@ -8,7 +8,7 @@ Convert the attached Figma file into a working web page. [(Figma file)](https://
 
 ### Explanation:
 
-[] Take trader rates and currencies from https://api.coingate.com/v2/rates.
+- [x] Take trader rates and currencies from https://api.coingate.com/v2/rates.
 Use rates to convert amounts and update them in text fields when the user is changing their input.
 Allow user to change currencies using a dropdown (should automatically recalculate amounts), EUR should be preselected as a pay currency and BTC as a buy currency.
 Hardcode an array of payment methods 3 are enough). The first one on the list should be preselected.
